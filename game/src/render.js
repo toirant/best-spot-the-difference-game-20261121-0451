@@ -206,14 +206,14 @@ function drawPanels(ctx, state) {
 }
 
 function drawBottomBar(ctx, state) {
+  ctx.textAlign = 'center';
+  ctx.textBaseline = 'middle';
   // The message line belongs to live play; the end screens say their own
   // piece in the overlay, so it stays out of their way.
   if (state.screen === SCREEN_PLAY) {
-    ctx.textAlign = 'center';
-    ctx.textBaseline = 'middle';
     ctx.fillStyle = COLORS.text;
     ctx.font = '18px Georgia, serif';
-    ctx.fillText(state.message || scene.blurb, CANVAS_WIDTH / 2, MESSAGE_Y);
+    ctx.fillText(state.message || currentScene(state).blurb, CANVAS_WIDTH / 2, MESSAGE_Y);
   }
 
   // Hint button.
